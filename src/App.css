@@ -34,7 +34,7 @@
   width: 100%;
   height: 100%;
   top: 0;
-  opacity: 0.4;
+  opacity: 0.9;
   filter: invert(1);
 }
 
@@ -79,8 +79,12 @@
   @apply rounded-full border border-black bg-black py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-black;
 }
 
+/* .head_text {
+  @apply mt-1 text-3xl leading-[1.15] text-black sm:text-6xl text-center;
+} */
+
 .head_text {
-  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl text-center;
+  @apply mt-4 font-satoshi font-bold;
 }
 
 .orange_gradient {
