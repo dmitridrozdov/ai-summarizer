@@ -60,7 +60,7 @@ const Demo = () => {
   };
 
   return (
-    <section className='mt-4 w-full max-w-xl'>
+    <section className='mt-4 w-full max-w-6xl'>
       {/* Search */}
       <div className='flex flex-col w-full gap-2'>
         <form
@@ -129,7 +129,7 @@ const Demo = () => {
           article.summary && (
             <div className='flex flex-col gap-3'>
               <h2 className='font-satoshi font-bold text-gray-600 text-xl'>
-                Article <span className='blue_gradient'>Summary</span>
+                Article Summary
               </h2>
               <div className='summary_box'>
                 <p className='font-satoshi font-medium text-sm text-gray-700'>
