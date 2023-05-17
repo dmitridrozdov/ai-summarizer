@@ -34,8 +34,8 @@
   width: 100%;
   height: 100%;
   top: 0;
-  opacity: 0.9;
-  filter: invert(1);
+  opacity: 0.3;
+  /* filter: invert(1); */
 }
 
 .gradient {
@@ -84,7 +84,7 @@
 } */
 
 .head_text {
-  @apply mt-4 font-satoshi font-bold;
+  @apply mt-4 font-serif font-bold;
 }
 
 .orange_gradient {
@@ -112,9 +112,13 @@
 }
 
 .blue_gradient {
-  @apply font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  @apply font-black bg-gradient-to-r from-cyan-300 to-cyan-700 bg-clip-text text-transparent;
 }
 
 .summary_box {
   @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4;
+}
+
+.summary_bionic_box {
+  @apply rounded-xl border border-gray-200 bg-white backdrop-blur p-4;
 }
