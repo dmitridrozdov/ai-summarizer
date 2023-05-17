@@ -59,6 +59,61 @@ const Demo = () => {
     }
   };
 
+  const getBionicReadingText = (articleSummary) => {
+    const lines = articleSummary.split('. ');
+  
+    const formattedLines = lines.map((line, lineIndex) => {
+      const words = line.split(' ');
+  
+      const formattedWords = words.map((word, wordIndex) => {
+        let formattedWord;
+        if (/^[A-Z]/.test(word)) {
+            formattedWord = (
+              <span key={wordIndex}>{word}</span>
+            );
+        }
+        // Check if the word contains a number
+        else if (/\d/.test(word)) {
+          formattedWord = (
+            <span key={wordIndex} >{word}</span>
+          );
+        } else if (word.length > 3) {
+          const firstHalfIndex = Math.ceil(word.length / 2) + 1;
+          const firstHalf = word.slice(0, firstHalfIndex);
+          const secondHalf = word.slice(firstHalfIndex);
+  
+          formattedWord = (
+            <span key={wordIndex}>
+              {firstHalf}
+              <span style={{ color: '#9a9c9a' }}>{secondHalf}</span>
+            </span>
+          );
+        } else {
+          formattedWord = (
+            <span key={wordIndex}>{word}</span>
+          );
+        }
+        return (
+          <React.Fragment key={wordIndex}>
+            {formattedWord}
+            {' '}
+          </React.Fragment>
+        );
+      }); 
+      const formattedLine = (
+        <React.Fragment key={lineIndex}>
+          {formattedWords}
+          {(lineIndex !== lines.length - 1) && '.'}
+          <br/><br/>
+        </React.Fragment>
+      );
+      return formattedLine;
+    });
+  
+    return formattedLines;
+  }
+
+
   return (
     <section className='mt-4 w-full max-w-6xl'>
       {/* Search */}
@@ -128,12 +183,21 @@ const Demo = () => {
         ) : (
           article.summary && (
             <div className='flex flex-col gap-3'>
-              <h2 className='font-satoshi font-bold text-gray-600 text-xl'>
+              <h2 className='font-satoshi font-bold text-gray-600 text-x'>
                 Article Summary
               </h2>
               <div className='summary_box'>
                 <p className='font-satoshi font-medium text-sm text-gray-700'>
                   {article.summary}
+                </p>
+              </div>
+              <br/><br/>
+              <h2 className='font-satoshi font-bold text-gray-600 text-x'>
+                Article Summary with <span className='blue_gradient'>Bionic Reading</span>
+              </h2>
+              <div className='summary_bionic_box'>
+                <p className='font-satoshi font-medium text-sm text-black'>
+                  {getBionicReadingText(article.summary)}
                 </p>
               </div>
             </div>
